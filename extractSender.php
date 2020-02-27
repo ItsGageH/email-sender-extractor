@@ -52,7 +52,11 @@ class fileHandler {
     }
 
     private function moveFile($tmpname, $ext) {
-        $dir = "uploads/".$this->generateFilename($ext);
+        $folder = 'uploads/';
+        if (!is_dir($folder)) {
+            mkdir($folder);
+        }
+        $dir = $folder.$this->generateFilename($ext);
         if (move_uploaded_file($tmpname, $dir)) {
             return $dir;
         } else {
