@@ -103,6 +103,27 @@ class fileHandler {
         return $processed;
     }
 }
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
+    <title>Email Sender Extractor</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col">
+                <h1 class="mx-auto">Extracted Senders</h1>
+            </div>
+        </div>
+        <div class="row mt-1">
+            <div class="col">
+<?php
 
 // $dir = readline('Specify Directory: '); // Request directory from User
 // $dir = rtrim($dir, '/') . '/'; // Ensure trailing slash at end
@@ -158,3 +179,10 @@ if(!empty($_FILES['files']['name'][0])) {
 //     // eg "To: John Smith <john.smith@example.com>
 //     echo sprintf('%s: %s', $recipient->getType(), (string)$recipient), "<br>";
 // }
+?>
+</div>
+        </div>
+    </div>
+    <script src="js/custom-file-input.js"></script>
+</body>
+</html>
