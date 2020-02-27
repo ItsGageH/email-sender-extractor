@@ -1,0 +1,7 @@
+{
+    "require": {
+        "pear/ole": "^1.0.0RC5",
+        "hfig/mapi": "^1.1",
+        "vaibhavpandeyvpz/phemail": "^1.0"
+    }
+}
