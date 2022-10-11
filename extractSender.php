@@ -34,11 +34,7 @@ class extractSender {
 
 class fileHandler {
     private function checkExtension($ext, $allowed) {
-        if(in_array($ext, $allowed)) {
-            return TRUE;
-        } else {
-            return FALSE;
-        }
+        return in_array($ext, $allowed);
     }
 
     private function generateFilename($ext) {
