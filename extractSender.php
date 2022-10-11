@@ -43,8 +43,7 @@ class fileHandler {
 
     private function getExtension($name) {
         $ext = explode('.', $name);
-        $ext = strtolower(end($ext));
-        return $ext;
+        return strtolower(end($ext));
     }
 
     private function moveFile($tmpname, $ext) {
@@ -53,11 +52,10 @@ class fileHandler {
             mkdir($folder);
         }
         $dir = $folder.$this->generateFilename($ext);
-        if (move_uploaded_file($tmpname, $dir)) {
-            return $dir;
-        } else {
-            return FALSE;
-        }
+
+        return move_uploaded_file($tmpname, $dir)
+            ? $dir
+            : FALSE;
     }
 
     private function filesToArray($files) {
@@ -77,11 +75,10 @@ class fileHandler {
         $ext = $this->getExtension($file['name']);
         if($this->checkExtension($ext, ['msg','eml'])) {
             $move = $this->moveFile($file['tmp_name'], $ext);
-            if($move !== FALSE) {
-                return ['status'=>'success', 'path'=>$move];
-            } else {
-                return ['status'=>'fail', 'msg'=>'Failed to move file.'];
-            }
+
+            return $move !== FALSE
+                        ? ['status'=>'success', 'path'=>$move]
+                        : ['status'=>'fail', 'msg'=>'Failed to move file.'];
         } else {
             return ['status'=>'fail', 'msg'=>'File has invalid extension.'];
         }
